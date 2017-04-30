@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Lunch Order</title>
+<link rel="stylesheet" href="styles.css" />
+   	
+<script type="text/javascript">
+
+	function processLunchOrder(){
+
+		var chicken = document.getElementById("chicken");
+		var halibut = document.getElementById("halibut");
+		var hamburger = document.getElementById("hamburger");
+		var salmon = document.getElementById("salmon");
+		var salad = document.getElementById("salad");
+	
+		var lunchChoice = 0;
+	
+		(chicken.checked)?(lunchChoice += 8):(lunchChoice += 0);
+		(halibut.checked)?(lunchChoice += 10):(lunchChoice += 0);
+		(hamburger.checked)?(lunchChoice += 8):(lunchChoice += 0);
+		(salmon.checked)?(lunchChoice += 13):(lunchChoice += 0);
+		(salad.checked)?(lunchChoice += 6):(lunchChoice += 0);
+		
+		document.getElementById("lunchItemsCost").innerHTML = "<b>Lunch Items Cost: $" + lunchChoice.toFixed(2) + "</b>";
+		
+		var water = document.getElementById("water");
+		var soda = document.getElementById("soda");
+		var juicecocktail = document.getElementById("juicecocktail");
+		var freshjuice = document.getElementById("freshjuice");
+	
+		var drinkChoice = 0;
+		
+		(water.checked)?(drinkChoice += 1.99):(drinkChoice += 0);
+		(soda.checked)?(drinkChoice += 1.00):(drinkChoice += 0);
+		(juicecocktail.checked)?(drinkChoice += 2.50):(drinkChoice += 0);
+		(freshjuice.checked)?(drinkChoice += 3.50):(drinkChoice += 0);
+		
+		document.getElementById("drinkCost").innerHTML = "<b>Drink Cost: $" + drinkChoice.toFixed(2) + "</b>";
+		
+		var totalCost = lunchChoice + drinkChoice;
+		
+		document.getElementById("totalCost").innerHTML = "<b>Total Order Cost: $" + totalCost.toFixed(2) + "</b>";  
+		    
+    }
+    
+    function clearLunchOrder(){
+    	
+    	document.getElementById("lunchItemsCost").innerHTML = "<b>Lunch Items Cost: $0</b>";
+    	document.getElementById("drinkCost").innerHTML = "<b>Drink Cost: $0</b>";
+    	document.getElementById("totalCost").innerHTML = "<b>Total Order Cost: $0</b>";
+    		
+    }
+    
+</script>
+  
+</head>
+
+<body bgcolor="#009966">
+<div align="center">
+<table bgcolor="lightgreen" cellpadding="10">
+<tr><td><h2>Lunch Order</h2></td></tr>
+<tr><td valign="top">
+   <article>
+   
+   <table bgcolor="lightgreen" cellpadding="5"><tr> <td>
+   
+      <h3>Lunch selections</h3>
+      
+      <form>
+      	<fieldset id="lunchitems" >
+      	 <input type="checkbox" name="lunchitem" id="chicken" value="8" />
+         <label for="item1">Fried chicken ($8.00)</label> <br />
+         <input type="checkbox"  name="lunchitem" id="halibut" value="10" />
+         <label for="item2">Fried halibut ($10.00)</label> <br />
+         <input type="checkbox"  name="lunchitem" id="hamburger" value="8" />
+         <label for="item3">Hamburger ($8.00)</label> <br />
+         <input type="checkbox"  name="lunchitem" id="salmon" value="13" />
+         <label for="item4">Grilled salmon ($13.00)</label> <br />
+         <input type="checkbox"  name="lunchitem" id="salad" value="6" />
+         <label for="item5">Side salad ($6.00)</label> <br />
+         </fieldset>
+        
+        </td></tr>
+            
+       <tr><td>
+
+         <h3>Select a Drink</h3>
+       
+        <fieldset id="drinks" >
+         <input type="radio" name="drink" id="water" value="1.99" />
+         <label for="item1">Bottled Water ($1.99)</label> <br />
+         <input type="radio" name="drink" id="soda" value="1.00" />
+         <label for="item2">Soda ($1.00)</label> <br />
+         <input type="radio" name="drink" id="juicecocktail" value="2.50" />
+         <label for="item3">Fruit Juice Cocktail ($2.50)</label> <br />
+         <input type="radio" name="drink" id="freshjuice" value="3.50" />
+         <label for="item4">Fresh Fruit Juice ($3.50)</label> <br />
+       </fieldset> 
+       </td></tr>
+
+       <tr><td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <input type="button" value="Submit" id="sButton" onclick="processLunchOrder();" /> &nbsp; &nbsp; 
+         <input type="reset" value="Reset" onclick="clearLunchOrder()" /> <br /> 
+      </form>
+      </td>
+      </tr>
+      </table>
+   </article>
+   </td>
+   
+   <td rowspan="3" style="width:250px;height:400px; vertical-align: inherit; background-color:#14eb5a">
+   <fieldset> 
+     <table bgcolor="#14eb5a" cellpadding="5">
+
+     <tr><td><h3>Lunch Order Summary  <hr></h3> 
+       
+       <div id="lunchItemsCost" ><b>Lunch Items Cost: </b> </div>    
+    
+    <div id="drinkCost" ><b>Drink Cost: </b> </div>
+   
+   <div id="totalCost" ><b>Total Order Cost: </b> </div>
+
+   </td></tr>
+ 
+   </table>
+   </fieldset>
+   </td>
+   </tr>
+   </table>
+   </div>
+ 
+</body>
+</html>
